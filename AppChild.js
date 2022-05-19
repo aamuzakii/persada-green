@@ -55,7 +55,7 @@ export default function App() {
       <Tab.Navigator tabBarOptions={tabBarOptions} screenOptions={screenOptions}
         >
         <Tab.Screen name="Beranda" component={HomeScreen} />
-        <Tab.Screen name="Pesanan" component={HomeScreen} />
+        <Tab.Screen name="Pesanan" component={OrderScreen} />
         <Tab.Screen name="Akun" component={HomeScreen} />
         <Tab.Screen name="Katalog" component={HomeScreen} />
       </Tab.Navigator>
