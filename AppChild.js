@@ -47,12 +47,13 @@ const screenOptions = ({ route }) => ({
   },
   tabBarActiveTintColor: 'blue',
   tabBarInactiveTintColor: 'gray',
+  tabBarStyle: [{"display": "flex"}, null]
 })
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator tabBarOptions={tabBarOptions} screenOptions={screenOptions}
+      <Tab.Navigator screenOptions={screenOptions}
         >
         <Tab.Screen name="Beranda" component={HomeScreen} />
         <Tab.Screen name="Pesanan" component={OrderScreen} />

@@ -11,9 +11,9 @@ export default function OrderScreen() {
   return (
     <View style={{ width: width, backgroundColor: 'grey' }} >
 
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
+      {/* <Card></Card> */}
+      {/* <Card></Card> */}
+      {/* <Card></Card> */}
     </View>
   );
 }

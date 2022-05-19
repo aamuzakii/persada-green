@@ -18,7 +18,10 @@ export default function HomeScreen() {
       <Text>HOMEEE1212121</Text>
       <Text>HOMEEE1212121</Text>
       <Text>HOMEEE1212121</Text>
-      <Button>sdsds</Button>
+      <Text>HOMEEE1212121HALOOOO</Text>
+      <Button>sdsd11s</Button>
+      <Button>sdsd11111s</Button>
+      <Button>sdsd11s</Button>
     </View>
   );
 }
