@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions } from 'react-native';
 import Card from '../components/orders/Card'
-import { Subheading } from 'react-native-paper';
+import { Subheading, Button, Searchbar  } from 'react-native-paper';
 
   
 
@@ -9,11 +9,20 @@ const Catalog = () => {
 
   let screenHeight = Dimensions.get('window').height;
 
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const onChangeSearch = query => setSearchQuery(query);
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={{ backgroundColor: 'orange', flex: 1 }} >
-        <Subheading style={{ padding: 100 }} >Produk</Subheading>
-      </Text>
+      <View style={{ backgroundColor: '#f4f6f8', flexGrow: 1, padding: 10 }} >
+        <Subheading >Produk</Subheading>
+        <Searchbar
+          placeholder="Search"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+      </View>
       <View style={{ height: (screenHeight - 200), borderColor: 'green' }} >
         <ScrollView >
           <Card></Card>
@@ -21,7 +30,9 @@ const Catalog = () => {
           <Card></Card>
         </ScrollView>
       </View>
-      <View style={{ backgroundColor: 'blue', flex: 1 }} >
+      <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10  }} >
+        <Button mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 10 }} >Tambah Produk</Button>
+        <Button mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 10 }} >Tambah Banyak</Button>
       </View>
     </SafeAreaView>
   );
