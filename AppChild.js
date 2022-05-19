@@ -10,17 +10,6 @@ import AccountScreen from './src/views/AccountScreen'
 
 const Tab = createBottomTabNavigator();
 
-let tabBarOptions = {
-  style: {
-    backgroundColor: 'transparent',
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    elevation: 0
-  },
-}
-
 const screenOptions = ({ route }) => ({
   tabBarIcon: ({ focused, color, size }) => {
     let iconName;
@@ -57,8 +46,8 @@ export default function App() {
         >
         <Tab.Screen name="Beranda" component={HomeScreen} />
         <Tab.Screen name="Pesanan" component={OrderScreen} />
-        <Tab.Screen name="Akun" component={HomeScreen} />
-        <Tab.Screen name="Katalog" component={HomeScreen} />
+        <Tab.Screen name="Katalog" component={CatalogScreen} />
+        <Tab.Screen name="Akun" component={AccountScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
