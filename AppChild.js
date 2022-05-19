@@ -51,10 +51,15 @@ const screenOptions = ({ route }) => ({
 
 export default function App() {
   return (
-    <View >
-      <Text>Gue 8818</Text>
-      <HomeScreen></HomeScreen>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator tabBarOptions={tabBarOptions} screenOptions={screenOptions}
+        >
+        <Tab.Screen name="Beranda" component={HomeScreen} />
+        <Tab.Screen name="Pesanan" component={HomeScreen} />
+        <Tab.Screen name="Akun" component={HomeScreen} />
+        <Tab.Screen name="Katalog" component={HomeScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
