@@ -19,9 +19,9 @@ const Catalog = () => {
     <SafeAreaView style={styles.container}>
       <View style={{ height: (screenHeight - 300), backgroundColor: 'green' }} >
         <ScrollView style={{ backgroundColor: 'white' }}  contentContainerStyle={{ alignItems: 'center' }} >
-          <TextInput dense={true} textStyle={{ height: 100 }} label="Nama Produk*" placeholder='Cth: Beras Premium' style={{ borderRadius: 0 }} caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} />
-          <TextInput textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' style={{ borderRadius: 0 }} caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} />
-          <TextInput  numberOfLines={8} multiline={true} textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' style={{ borderRadius: 0 }} caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} />
+          <TextInput dense={true} textStyle={{ height: 100 }} label="Nama Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
+          <TextInput textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
+          <TextInput  numberOfLines={8} multiline={true} textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
         </ScrollView>
       </View>
     </SafeAreaView>
