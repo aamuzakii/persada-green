@@ -2,8 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions } from 'react-native';
 import Card from '../components/catalog/Card'
 import { Subheading, Button, Searchbar  } from 'react-native-paper';
-
-  
+import { grey } from '../components/SharedStyle';
 
 const Catalog = () => {
 
@@ -21,16 +20,17 @@ const Catalog = () => {
           placeholder="Search"
           onChangeText={onChangeSearch}
           value={searchQuery}
+          style={{ borderRadius: 10 }}
         />
       </View>
       <View style={{ height: (screenHeight - 300), backgroundColor: 'green' }} >
-        <ScrollView style={{ backgroundColor: 'red' }} contentContainerStyle={{ alignItems: 'center' }} >
+        <ScrollView style={{ backgroundColor: '#f5f6f8' }} contentContainerStyle={{ alignItems: 'center' }} >
           <Card></Card>
         </ScrollView>
       </View>
       <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'  }} >
-        <Button mode="outlined" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Banyak</Button>
-        <Button mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Produk</Button>
+        <Button uppercase={false} mode="outlined" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Banyak</Button>
+        <Button uppercase={false} mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Produk</Button>
       </View>
     </SafeAreaView>
   );

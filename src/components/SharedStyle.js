@@ -3,6 +3,8 @@ import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions
 export const screenHeight = Dimensions.get('window').height;
 export const screenWidth = Dimensions.get('window').width;
 
+export const grey = '301b92'
+
 export let outlinedButton = {
   // width: screenWidth * 35 / 100,
   backgroundColor: 'white',
