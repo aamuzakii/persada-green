@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions } from 'react-native';
+import { StyleSheet, TextInput, SafeAreaView, ScrollView, StatusBar, View, Dimensions } from 'react-native';
 import Card from '../components/catalog/Card'
 import { Subheading, Button, Searchbar  } from 'react-native-paper';
 import { grey } from '../components/SharedStyle';
 
-const Catalog = () => {
+const Catalog = ({navigation}) => {
 
   let screenHeight = Dimensions.get('window').height;
 
@@ -29,8 +29,8 @@ const Catalog = () => {
         </ScrollView>
       </View>
       <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'  }} >
-        <Button uppercase={false} mode="outlined" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Banyak</Button>
-        <Button uppercase={false} mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Produk</Button>
+        <Button uppercase={false} mode="outlined" onPress={() => navigation.navigate('Details')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Banyak</Button>
+        <Button uppercase={false} mode="contained" onPress={() => navigation.navigate('Detail Produk Baru')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Produk</Button>
       </View>
     </SafeAreaView>
   );

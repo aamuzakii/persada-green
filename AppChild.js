@@ -2,11 +2,13 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './src/views/HomeScreen'
 import OrderScreen from './src/views/OrderScreen'
 import CatalogScreen from './src/views/CatalogScreen'
 import AccountScreen from './src/views/AccountScreen'
+import AddProductScreen from './src/views/AddProductScreen'
 
 const Tab = createBottomTabNavigator();
 
@@ -39,6 +41,17 @@ const screenOptions = ({ route }) => ({
   tabBarStyle: [{"display": "flex"}, null]
 })
 
+const Stack = createNativeStackNavigator(); 
+
+function CatalogStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="MainCatalog" component={CatalogScreen} ></Stack.Screen>
+      <Stack.Screen name="Detail Produk Baru" component={AddProductScreen} ></Stack.Screen>
+    </Stack.Navigator>
+  )
+}
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -46,7 +59,7 @@ export default function App() {
         >
         <Tab.Screen name="Beranda" component={HomeScreen} />
         <Tab.Screen name="Pesanan" component={OrderScreen} />
-        <Tab.Screen name="Katalog" component={CatalogScreen} />
+        <Tab.Screen options={{headerShown: false}} name="Katalog" component={CatalogStack} />
         <Tab.Screen name="Akun" component={AccountScreen} />
       </Tab.Navigator>
     </NavigationContainer>
