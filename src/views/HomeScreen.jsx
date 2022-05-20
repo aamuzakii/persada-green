@@ -4,6 +4,7 @@ import Statistic from '../components/home/Statistic'
 import { Subheading, Button, Searchbar, Caption  } from 'react-native-paper';
 import { outlinedButton, fullButton, outlinedButtonLong } from '../components/SharedStyle';
 import OrderCard from '../components/home/OrderCard';
+import WebLink from '../components/home/WebLink';
 
 const Home = () => {
 
@@ -26,30 +27,22 @@ const Home = () => {
           <Statistic></Statistic>
 
           {/* component share link */}
-          <View>
-            <Caption>Bagikan link ke pelanggan</Caption>
-            <View style={{ flexDirection: 'row',  justifyContent: 'space-around' }} >
-              <TouchableHighlight style={outlinedButtonLong} >
-                <Caption>https://persada.store</Caption>
-              </TouchableHighlight>
-            </View>
-            <View style={{ flexDirection: 'row',  justifyContent: 'space-around' }} >
-              <TouchableHighlight style={outlinedButton} >
-                <Caption>Lihat Toko</Caption>
-              </TouchableHighlight>
-              <TouchableHighlight style={fullButton} >
-                <Text style={{ color: 'white' }}>Bagikan Link Toko</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
+          <WebLink></WebLink>
 
-          <ScrollView horizontal={true} style={{ backgroundColor: 'white', paddingHorizontal: 20, marginVertical: 15 }}>
-            {
-              [1,2,3,4].map((key, i) => (
-                <OrderCard key={i} ></OrderCard>
-              ))
-            }
-          </ScrollView>
+          <View style={{ backgroundColor: 'white', paddingHorizontal: 20, marginVertical: 15 }} >
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
+              <Text style={{ fontWeight: 'bold' }} >Pesanan Baru</Text>
+              <Text style={{ fontWeight: 'bold', color: '#301b92' }} >Lihat Semua</Text>
+            </View>
+            <ScrollView horizontal={true} style={{ paddingHorizontal: 20, marginVertical: 15 }}>
+              {
+                [1,2,3,4].map((key, i) => (
+                  <OrderCard key={i} ></OrderCard>
+                ))
+              }
+            </ScrollView> 
+          </View>
+         
 
           <View id='bemper' style={{ height: 80 }} ></View>
 
