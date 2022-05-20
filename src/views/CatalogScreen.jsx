@@ -23,8 +23,8 @@ const Catalog = () => {
           value={searchQuery}
         />
       </View>
-      <View style={{ height: (screenHeight - 300), borderColor: 'green' }} >
-        <ScrollView >
+      <View style={{ height: (screenHeight - 300), backgroundColor: 'green' }} >
+        <ScrollView style={{ backgroundColor: 'red' }} contentContainerStyle={{ alignItems: 'center' }} >
           <Card></Card>
         </ScrollView>
       </View>
