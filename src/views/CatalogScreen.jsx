@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions } from 'react-native';
-import Card from '../components/orders/Card'
+import Card from '../components/catalog/Card'
 import { Subheading, Button, Searchbar  } from 'react-native-paper';
 
   
@@ -23,16 +23,14 @@ const Catalog = () => {
           value={searchQuery}
         />
       </View>
-      <View style={{ height: (screenHeight - 200), borderColor: 'green' }} >
+      <View style={{ height: (screenHeight - 300), borderColor: 'green' }} >
         <ScrollView >
-          <Card></Card>
-          <Card></Card>
           <Card></Card>
         </ScrollView>
       </View>
-      <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10  }} >
-        <Button mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 10 }} >Tambah Produk</Button>
-        <Button mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 10 }} >Tambah Banyak</Button>
+      <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'  }} >
+        <Button mode="outlined" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Banyak</Button>
+        <Button mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Produk</Button>
       </View>
     </SafeAreaView>
   );

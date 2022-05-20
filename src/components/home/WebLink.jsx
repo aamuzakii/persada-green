@@ -9,11 +9,11 @@ export default function WebLink() {
   let screenHeight = Dimensions.get('window').height;
 
   return (
-    <View style={{ paddingHorizontal: 12 }} >
+    <View style={{ padding: 12, backgroundColor: 'white' }} >
       <Caption><Ionicons name="share-social-sharp" size={20} color="#301b92" />Bagikan link ke pelanggan</Caption>
       <View style={{ flexDirection: 'row',  justifyContent: 'space-around' }} >
         <TouchableHighlight style={outlinedButtonLong} >
-          <Caption>https://persada.stores</Caption>
+          <Caption>https://persada.store</Caption>
         </TouchableHighlight>
       </View>
       <View style={{ flexDirection: 'row',  justifyContent: 'space-around' }} >

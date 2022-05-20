@@ -22,11 +22,13 @@ export let outlinedButtonLong = {
   backgroundColor: 'white',
   borderRadius: 10,
   borderWidth: 1.5,
+  height: 40,
   borderColor: '#c6c6c6',
   color: '#301b92',
   flexDirection: 'row',
   justifyContent: 'center',
-  marginVertical: 9
+  marginVertical: 9,
+  alignItems: 'center'
 }
 
 export let fullButton = {
