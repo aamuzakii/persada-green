@@ -34,8 +34,8 @@ const Catalog = () => {
         </ScrollView>
       </View>
       <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'  }} >
-        <Button mode="outlined" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Banyak</Button>
-        <Button mode="contained" onPress={() => console.log('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Produk</Button>
+        <Button mode="outlined" onPress={() => console.warn('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Banyak</Button>
+        <Button mode="contained" onPress={() => console.warn('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Produk</Button>
       </View>
     </SafeAreaView>
   );

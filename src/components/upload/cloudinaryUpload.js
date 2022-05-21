@@ -43,10 +43,9 @@ export function useUploadToCloudinary(uri) {
 				// if (callback) callback(res);
 				response = res;
 				uploadedUrl = res.secure_url
-				console.log(res)
 			};
 			xhr.onerror = e => {
-				console.log(e, '🚨 story upload failed, never properly sent to cloudinary');
+				console.error(e, '🚨 story upload failed, never properly sent to cloudinary');
 			};
 			xhr.ontimeout = e => {
 				console.warn(e, '⏰ cloudinary upload timed out');

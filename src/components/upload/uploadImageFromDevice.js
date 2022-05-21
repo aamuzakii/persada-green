@@ -17,7 +17,6 @@ const uploadImageFromDevice = async () => {
 
   if (!result.cancelled) {
     imgURI = result.uri;
-    console.log(result)
   }
 
   return imgURI;

@@ -17,8 +17,8 @@ const Home = () => {
         <Subheading >Tombol Kilat</Subheading>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
           {/* https://materialdesignicons.com/ */}
-          <Button icon="package-variant" compact="true" mode="contained"  uppercase="false" onPress={() => console.log('Pressed')} style={{ margin: 10 }} >Tambah Produk</Button>
-          <Button icon="camera" compact="true" mode="contained"  uppercase="false" onPress={() => console.log('Pressed')} style={{ margin: 10 }} >Tambah Banyak</Button>
+          <Button icon="package-variant" compact="true" mode="contained"  uppercase="false" onPress={() => console.warn('Pressed')} style={{ margin: 10 }} >Tambah Produk</Button>
+          <Button icon="camera" compact="true" mode="contained"  uppercase="false" onPress={() => console.warn('Pressed')} style={{ margin: 10 }} >Tambah Banyak</Button>
         </View>
       </View>
       {/* SCROLL SECTION */}

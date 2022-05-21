@@ -42,7 +42,6 @@ export function fetchAllProducts() {
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
         // dispatch(setProductToShow(result))
       })
       .catch(error => console.error('error', error));
@@ -73,11 +72,6 @@ export function postOrder(payload) {
 
 export function postNewProduct(payload) {
 
-  // payload = {
-  //   dff: 12
-  // }
-
-  console.log(payload)
   return ((dispatch) => {
     let url = `${BASE_URI}/products`
 
