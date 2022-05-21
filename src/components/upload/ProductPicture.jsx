@@ -5,7 +5,7 @@ import {
   Image,
   useWindowDimensions,
 } from "react-native";
-import { AntDesign, Feather } from "@expo/vector-icons";
+import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
 import uplodImageFromDevice from "./uploadImageFromDevice";
 import { useUploadToCloudinary } from "./cloudinaryUpload";
 
@@ -64,35 +64,29 @@ export default function ProductPicture() {
     }
   };
 
+  let boxSize = width * 23 /100
+
   return (
-    <View style={{ height: 200, backgroundColor: 'red'  }} >
+    <View style={{ height: 150, backgroundColor: 'red', flexDirection: 'row-reverse', alignItems: 'center'  }} >
       {Boolean(imgURI) && (
-        <View>
+        <View style={{ backgroundColor: 'yellow', width: boxSize, marginHorizontal: 10 }} >
           <Image
             source={{ uri: imgURI }}
             resizeMode="contain"
-            style={{ width, height: 100 }}
+            style={{ height: boxSize, borderRadius: 10 }}
           />
         </View>
       )}
 
       {!isUploading && (
-        <View >
-          <AntDesign
-            name="addfile"
-            size={36}
-            color={imgURI ? "green" : "black"}
+        <View style={{ borderColor: 'black', borderStyle: 'dashed', borderWidth: 2, borderRadius: 8, height: boxSize, width: boxSize, alignItems: 'center', justifyContent: 'center' }} >
+          <Ionicons
+            name="ios-camera"
+            // name="ios-camera-reverse"
+            size={23}
+            color={imgURI ? "#301b92" : "black"}
             onPress={handleLocalImageUpload}
           />
-
-          {Boolean(imgURI) && (
-            <Feather
-              name="upload-cloud"
-              size={36}
-              color="black"
-              onPress={handleCloudImageUpload}
-            />
-          )}
         </View>
       )}
 
