@@ -7,7 +7,6 @@ const hasMediaLibraryPermissionGranted = async () => {
 
   if (!permission.canAskAgain || permission.status === "denied") {
     granted = false;
-
   }
 
   if (permission.granted) {

@@ -1,9 +1,7 @@
 import CryptoJS from 'crypto-js';
 import { CLOUDINARY_API_KEY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_SECRET } from '../../../env';
 
-// upload a file to cloudinary using React Hooks
-// see below for what hooks are
-// https://reactjs.org/docs/hooks-intro.html
+// Thanks to https://gist.github.com/nandorojo/7063a8d15bd3bb235949882f14674985
 
 // make sure you fill these out:
 const API_KEY = CLOUDINARY_API_KEY;

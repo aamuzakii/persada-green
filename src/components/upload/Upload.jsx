@@ -7,8 +7,7 @@ import {
 } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import uplodImageFromDevice from "./uploadImageFromDevice";
-import cloudinaryUpload from './cloudinary'
-import { useUploadToCloudinary } from "./react-native-file-upload-copy";
+import { useUploadToCloudinary } from "./cloudinaryUpload";
 
 export default function Upload() {
   const [imgURI, setImageURI] = React.useState(null);
@@ -63,11 +62,6 @@ export default function Upload() {
     } catch (error) {
       console.log(error)
     }
-
-
-    // const blob = await getBlobFromUri(imgURI);
-
-    // await manageFileUpload(blob, { onStart, onProgress, onComplete, onFail });
   };
 
   return (
