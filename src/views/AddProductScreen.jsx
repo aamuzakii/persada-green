@@ -3,7 +3,7 @@ import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions
 import Card from '../components/catalog/Card'
 import { Subheading, Button, Searchbar, TextInput } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
-import { fetchAllProducts } from '../reducer/reducer';
+import { postNewProduct } from '../reducer/reducer';
 
 import { grey } from '../components/SharedStyle';
 
@@ -15,11 +15,12 @@ const Catalog = ({ navigation }) => {
   const dispatch = useDispatch()
 
   const handleSubmit = () => {
-    dispatch(fetchAllProducts())
+    dispatch(postNewProduct({ name, price, desc }))
   }
 
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const [text, setText] = React.useState("");
+  const [name, setName] = React.useState("");
+  const [price, setPrice] = React.useState("");
+  const [desc, setDesc] = React.useState("");
 
   const onChangeSearch = query => setSearchQuery(query);
 
@@ -27,9 +28,9 @@ const Catalog = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={{ height: (screenHeight - 300), backgroundColor: 'green' }} >
         <ScrollView style={{ backgroundColor: 'white' }}  contentContainerStyle={{ alignItems: 'center' }} >
-          <TextInput dense={true} textStyle={{ height: 100 }} label="Nama Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
-          <TextInput textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
-          <TextInput  numberOfLines={8} multiline={true} textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
+          <TextInput dense={true} textStyle={{ height: 100 }} label="Nama Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={name} onChangeText={name => setName(name)} style={{ width: screenWidth * 90 /100 }} />
+          <TextInput textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={price} onChangeText={price => setPrice(price)} style={{ width: screenWidth * 90 /100 }} />
+          <TextInput  numberOfLines={8} multiline={true} textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={desc} onChangeText={desc => setDesc(desc)} style={{ width: screenWidth * 90 /100 }} />
           <Button uppercase={false} mode="contained" onPress={handleSubmit} style={{ margin: 10, width: 150, height: 40 }} >Tambah</Button>
         </ScrollView>
       </View>
