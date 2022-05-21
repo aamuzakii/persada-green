@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 import AppChild from './AppChild'
+import { store } from './src/reducer/reducer'
+import { Provider } from 'react-redux'
 
 export default function App() {
 
@@ -17,7 +19,9 @@ export default function App() {
 
   return (
     <PaperProvider theme={theme} >
-      <AppChild/>
+      <Provider store={store}>
+        <AppChild/>
+      </Provider>
     </PaperProvider>
   );
 }

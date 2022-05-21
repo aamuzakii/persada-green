@@ -2,13 +2,21 @@ import * as React from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions } from 'react-native';
 import Card from '../components/catalog/Card'
 import { Subheading, Button, Searchbar, TextInput } from 'react-native-paper';
+import { useDispatch } from 'react-redux';
+import { fetchAllProducts } from '../reducer/reducer';
 
 import { grey } from '../components/SharedStyle';
 
-const Catalog = () => {
+const Catalog = ({ navigation }) => {
 
   let screenHeight = Dimensions.get('window').height;
   let screenWidth = Dimensions.get('window').width;
+
+  const dispatch = useDispatch()
+
+  const handleSubmit = () => {
+    dispatch(fetchAllProducts())
+  }
 
   const [searchQuery, setSearchQuery] = React.useState('');
   const [text, setText] = React.useState("");
@@ -22,6 +30,7 @@ const Catalog = () => {
           <TextInput dense={true} textStyle={{ height: 100 }} label="Nama Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
           <TextInput textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
           <TextInput  numberOfLines={8} multiline={true} textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={text} onChangeText={text => setText(text)} style={{ width: screenWidth * 90 /100 }} />
+          <Button uppercase={false} mode="contained" onPress={handleSubmit} style={{ margin: 10, width: 150, height: 40 }} >Tambah</Button>
         </ScrollView>
       </View>
     </SafeAreaView>
