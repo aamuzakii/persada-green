@@ -9,7 +9,7 @@ import { AntDesign, Feather } from "@expo/vector-icons";
 import uplodImageFromDevice from "./uploadImageFromDevice";
 import { useUploadToCloudinary } from "./cloudinaryUpload";
 
-export default function Upload() {
+export default function ProductPicture() {
   const [imgURI, setImageURI] = React.useState(null);
 
   const [isUploading, setIsUploading] = React.useState(false);
@@ -66,7 +66,6 @@ export default function Upload() {
 
   return (
     <View style={{ height: 200, backgroundColor: 'red'  }} >
-      <Text >Attach and upload image</Text>
       {Boolean(imgURI) && (
         <View>
           <Image

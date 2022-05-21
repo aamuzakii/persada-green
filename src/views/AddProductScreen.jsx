@@ -5,7 +5,7 @@ import { Subheading, Button, Searchbar, TextInput } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import { postNewProduct } from '../reducer/reducer';
 import * as MediaLibrary from 'expo-media-library';
-import Upload from '../components/upload/Upload';
+import ProductPicture from '../components/upload/ProductPicture';
 
 const Catalog = ({ navigation }) => {
 
@@ -33,11 +33,11 @@ const Catalog = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={{ height: (screenHeight - 300), backgroundColor: 'green' }} >
         <ScrollView style={{ backgroundColor: 'white' }}  contentContainerStyle={{ alignItems: 'center' }} >
-          <Upload>sdsd</Upload>
-          {/* <TextInput dense={true} textStyle={{ height: 100 }} label="Nama Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={name} onChangeText={name => setName(name)} style={{ width: screenWidth * 90 /100 }} />
+          <ProductPicture/>
+          <TextInput dense={true} textStyle={{ height: 100 }} label="Nama Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={name} onChangeText={name => setName(name)} style={{ width: screenWidth * 90 /100 }} />
           <TextInput textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={price} onChangeText={price => setPrice(price)} style={{ width: screenWidth * 90 /100 }} />
           <TextInput  numberOfLines={8} multiline={true} textStyle={{ height: 100 }} label="Harga Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={desc} onChangeText={desc => setDesc(desc)} style={{ width: screenWidth * 90 /100 }} />
-          <Button uppercase={false} mode="contained" onPress={handleSubmit} style={{ margin: 10, width: 150, height: 40 }} >Tambah</Button> */}
+          <Button uppercase={false} mode="contained" onPress={handleSubmit} style={{ margin: 10, width: 150, height: 40 }} >Tambah</Button>
         </ScrollView>
       </View>
     </SafeAreaView>
