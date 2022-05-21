@@ -1,12 +1,14 @@
-import { useState } from 'react';
 import CryptoJS from 'crypto-js';
+import { CLOUDINARY_API_KEY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_SECRET } from '../../../env';
 
 // upload a file to cloudinary using React Hooks
 // see below for what hooks are
 // https://reactjs.org/docs/hooks-intro.html
 
 // make sure you fill these out:
-
+const API_KEY = CLOUDINARY_API_KEY;
+const SECRET = CLOUDINARY_SECRET;
+const CLOUD_NAME = CLOUDINARY_CLOUD_NAME;
 
 export function useUploadToCloudinary(uri) {
 	// const [isUploading, setIsUploading] = useState(true);
