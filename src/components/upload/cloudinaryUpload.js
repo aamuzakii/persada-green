@@ -9,11 +9,6 @@ const SECRET = CLOUDINARY_SECRET;
 const CLOUD_NAME = CLOUDINARY_CLOUD_NAME;
 
 export function useUploadToCloudinary(uri) {
-	// const [isUploading, setIsUploading] = useState(true);
-	// const [hasErrored, setError] = useState(false);
-	// const [response, setResponse] = useState(null);
-	// const [progress, setProgress] = useState(0);
-	// const [uploadedUrl, setUploadedUrl] = useState('');
 	let isUploading
 	let hasErrored
 	let response
@@ -38,11 +33,13 @@ export function useUploadToCloudinary(uri) {
 
 			const xhr = new XMLHttpRequest();
 			xhr.open('POST', uploadUrl);
-			xhr.onload = () => {
+			xhr.onload = async () => {
 				const res = JSON.parse(xhr.response);
 				// if (callback) callback(res);
 				response = res;
 				uploadedUrl = res.secure_url
+				console.log(uploadedUrl, `::::::::::`)
+				return await uploadedUrl
 			};
 			xhr.onerror = e => {
 				console.error(e, '🚨 story upload failed, never properly sent to cloudinary');

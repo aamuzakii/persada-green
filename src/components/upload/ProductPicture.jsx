@@ -5,11 +5,11 @@ import {
   Image,
   useWindowDimensions,
 } from "react-native";
-import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import uplodImageFromDevice from "./uploadImageFromDevice";
 import { useUploadToCloudinary } from "./cloudinaryUpload";
 
-export default function ProductPicture() {
+export default function ProductPicture({ setImageURIParent }) {
   const [imgURI, setImageURI] = React.useState(null);
 
   const [isUploading, setIsUploading] = React.useState(false);
@@ -25,11 +25,11 @@ export default function ProductPicture() {
 
       if (fileURI) {
         setImageURI(fileURI);
+        setImageURIParent(fileURI)
       }
-      console.log("NYAMPEE")
   
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   };
 
@@ -60,7 +60,7 @@ export default function ProductPicture() {
       console.log(a)
 
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   };
 
