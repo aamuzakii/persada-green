@@ -13,8 +13,8 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ backgroundColor: '#f4f6f8', flexGrow: 1 }} >
-        <Subheading >Tombol Kilat</Subheading>
+      <View style={{ backgroundColor: 'white', flexGrow: 1, padding: 8, borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }} >
+        <Subheading style={{ fontWeight: 'bold' }} >Tombol Kilat</Subheading>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
           {/* https://materialdesignicons.com/ */}
           <Button icon="package-variant" compact="true" mode="contained"  uppercase="false" onPress={() => console.warn('Pressed')} style={{ margin: 10 }} >Tambah Produk</Button>
@@ -24,7 +24,7 @@ const Home = () => {
       {/* SCROLL SECTION */}
       <View style={{ height: (screenHeight - 100), borderColor: 'green' }} >
         <ScrollView >
-          <Statistic></Statistic>
+          {/* <Statistic></Statistic> */}
 
           {/* component share link */}
           <WebLink></WebLink>
