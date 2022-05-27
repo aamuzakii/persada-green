@@ -29,12 +29,12 @@ const Home = () => {
           {/* component share link */}
           <WebLink></WebLink>
 
-          <View style={{ backgroundColor: 'white', paddingHorizontal: 20, marginVertical: 15 }} >
+          <View style={{ backgroundColor: 'white', paddingHorizontal: 10, marginVertical: 15 }} >
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
               <Text style={{ fontWeight: 'bold' }} >Pesanan Baru</Text>
               <Text style={{ fontWeight: 'bold', color: '#301b92' }} >Lihat Semua</Text>
             </View>
-            <ScrollView horizontal={true} style={{ paddingHorizontal: 20, marginVertical: 15 }}>
+            <ScrollView horizontal={true} style={{ marginVertical: 15 }}>
               {
                 [1,2,3,4].map((key, i) => (
                   <OrderCard key={i} ></OrderCard>
