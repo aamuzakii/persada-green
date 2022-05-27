@@ -67,9 +67,15 @@ export default function ProductPicture({ setImageURIParent }) {
   let boxSize = width * 23 /100
 
   return (
-    <View style={{ height: 150, backgroundColor: 'red', flexDirection: 'row-reverse', alignItems: 'center'  }} >
+    <View style={{ height: 150, flexDirection: 'row', alignItems: 'center'  }} >
       {Boolean(imgURI) && (
-        <View style={{ backgroundColor: 'yellow', width: boxSize, marginHorizontal: 10 }} >
+        <View style={{ width: boxSize, marginHorizontal: 10 }} >
+          <View style={{ position: 'absolute', zIndex: 100, right: 0 }} ><Ionicons
+            name="ios-close-circle"
+            size={20}
+            color="white"
+            // onPress={deleteFromURI}
+          /></View>
           <Image
             source={{ uri: imgURI }}
             resizeMode="contain"
@@ -79,7 +85,7 @@ export default function ProductPicture({ setImageURIParent }) {
       )}
 
       {!isUploading && (
-        <View style={{ borderColor: 'black', borderStyle: 'dashed', borderWidth: 2, borderRadius: 8, height: boxSize, width: boxSize, alignItems: 'center', justifyContent: 'center' }} >
+        <View style={{ borderColor: 'grey', borderStyle: 'dashed', borderWidth: 2, borderRadius: 8, height: boxSize, width: boxSize, alignItems: 'center', justifyContent: 'center' }} >
           <Ionicons
             name="ios-camera"
             // name="ios-camera-reverse"

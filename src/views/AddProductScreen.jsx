@@ -37,7 +37,7 @@ const Catalog = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1 }} >
         <ScrollView style={{ backgroundColor: 'white' }}  contentContainerStyle={{ alignItems: 'center' }} >
-          <View style={{ alignItems: 'flex-start', flexDirection: 'row', width: screenWidth * 90 /100, backgroundColor: 'green' }} >
+          <View style={{ alignItems: 'flex-start', flexDirection: 'row', width: screenWidth * 90 /100 }} >
             <ProductPicture setImageURIParent={setImageURI} />
           </View>
           <TextInput dense={true} textStyle={{ height: 100 }} label="Nama Produk*" placeholder='Cth: Beras Premium' caretHidden={true} mode='outlined'  value={name} onChangeText={name => setName(name)} style={{ width: screenWidth * 90 /100 }} />
