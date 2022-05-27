@@ -35,7 +35,7 @@ const Catalog = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ height: (screenHeight - 300), backgroundColor: 'green' }} >
+      <View style={{ flex: 1 }} >
         <ScrollView style={{ backgroundColor: 'white' }}  contentContainerStyle={{ alignItems: 'center' }} >
           <View style={{ alignItems: 'flex-start', flexDirection: 'row', width: screenWidth * 90 /100, backgroundColor: 'green' }} >
             <ProductPicture setImageURIParent={setImageURI} />

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions } from 'react-native';
-import Card from '../components/orders/Card'
-import OrderCard from '../components/home/OrderCard';
+import OrderCard from '../components/orders/OrderCard';
 import { Subheading, Button, Searchbar  } from 'react-native-paper';
 
   
