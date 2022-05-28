@@ -9,6 +9,7 @@ import OrderScreen from './src/views/OrderScreen'
 import CatalogScreen from './src/views/CatalogScreen'
 import AccountScreen from './src/views/AccountScreen'
 import AddProductScreen from './src/views/AddProductScreen'
+import LoginScreen from './src/views/LoginScreen'
 
 const Tab = createBottomTabNavigator();
 
@@ -53,14 +54,24 @@ function CatalogStack() {
 }
 
 export default function App() {
+
+  let isTokenValid = false
+
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={screenOptions}
-        >
-        <Tab.Screen name="Beranda" component={HomeScreen} />
-        <Tab.Screen name="Pesanan" component={OrderScreen} />
-        <Tab.Screen options={{headerShown: false}} name="Katalog" component={CatalogStack} />
-        <Tab.Screen name="Akun" component={AccountScreen} />
+      <Tab.Navigator screenOptions={screenOptions} >
+        {
+          isTokenValid ? (
+            <>
+              <Tab.Screen name="Beranda" component={HomeScreen} />
+              <Tab.Screen name="Pesanan" component={OrderScreen} />
+              <Tab.Screen options={{headerShown: false}} name="Katalog" component={CatalogStack} />
+              <Tab.Screen name="Akun" component={AccountScreen} />
+            </>
+          ) : <>
+                <Tab.Screen name="Beranda" options={{headerShown: false, tabBarVisible: false}} component={LoginScreen} />    
+              </>
+        }
       </Tab.Navigator>
     </NavigationContainer>
   );
