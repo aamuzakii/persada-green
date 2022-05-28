@@ -1,4 +1,10 @@
-<TextInput
+import React from 'react'
+import { ImageBackground, StyleSheet, TextInput, View, TouchableHighlight } from "react-native";
+
+
+function CustomInput() {
+  return (
+    <TextInput
           style={{
             height: 40,
             marginVertical: 12,
@@ -9,8 +15,12 @@
           }}
           // onChangeText={onChangeNumber}
           // value={number}
-          placeholder="useless placeholder"
+          placeholder="Masukan nomor WhatsApp"
           keyboardType="numeric"
           selectionColor="red"
         >
         </TextInput>
+  )
+}
+
+export default CustomInput

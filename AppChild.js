@@ -72,5 +72,3 @@ export default function App() {
     <LoginScreen></LoginScreen>
   )
 }
-
-{/* <Tab.Screen name="Beranda" options={{headerShown: false, tabBarVisible: false}} component={LoginScreen} />     */}
