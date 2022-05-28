@@ -10,6 +10,7 @@ import CatalogScreen from './src/views/CatalogScreen'
 import AccountScreen from './src/views/AccountScreen'
 import AddProductScreen from './src/views/AddProductScreen'
 import LoginScreen from './src/views/LoginScreen'
+import { useSelector } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
@@ -55,7 +56,9 @@ function CatalogStack() {
 
 export default function App() {
 
-  let isTokenValid = false
+  let a = useSelector( state => state)
+
+  let isTokenValid = a
 
   if (isTokenValid) return (
     <NavigationContainer>

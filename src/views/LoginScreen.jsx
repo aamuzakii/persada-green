@@ -3,14 +3,22 @@ import { ImageBackground, StyleSheet, Text, View, TouchableHighlight } from "rea
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TextInput } from 'react-native-paper';
 import CustomInput from "../components/login/CustomInput";
+import { requestOTP } from '../reducer/reducer';
+import { useDispatch } from 'react-redux';
 
 const image = { uri: "https://res.cloudinary.com/dm9ufmxnq/image/upload/v1653724772/wp3152237_tzuzzj.png" };
 
-const submitPhoneNumber = () => {
+const LoginScreen = () => {
+  const dispatch = useDispatch()
 
-}
+  const submitPhoneNumber = async () => {
+    let result = await dispatch(requestOTP({
+      phone: '6283894588105'
+    }))
 
-const LoginScreen = () => (
+  }
+
+  return (
   <View style={styles.container}>
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View style={{ padding: 25, backgroundColor: 'white', height: 400, borderTopRightRadius: 20, borderTopLeftRadius: 20 }} >
@@ -18,7 +26,7 @@ const LoginScreen = () => (
         <Text style={{ color: '#626262', fontSize: 15, marginVertical: 25 }} >Nomor WhatsApp valid dibutuhkan untuk mengatur pesanan dan toko</Text>
         <Text style={{ color: '#626262', fontSize: 17 }} >Nomor WhatsApp</Text>
         <CustomInput></CustomInput>
-        <TouchableHighlight>
+        <TouchableHighlight onPress={submitPhoneNumber} >
           <View style={{
             alignItems: "center",
             backgroundColor: "#311b92",
@@ -45,7 +53,7 @@ const LoginScreen = () => (
       </View>
     </ImageBackground>
   </View>
-);
+)};
 
 const styles = StyleSheet.create({
   container: {

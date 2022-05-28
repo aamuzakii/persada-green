@@ -32,7 +32,7 @@ const Home = () => {
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
           {/* https://materialdesignicons.com/ */}
           <Button icon="package-variant" compact="true" mode="contained"  uppercase="false" onPress={() => setToken()} style={{ margin: 10 }} >Tambah Produk</Button>
-          <Button icon="camera" compact="true" mode="contained"  uppercase="false" onPress={() => getValueFor("foo")} style={{ margin: 10 }} >Tambah Banyak</Button>
+          <Button icon="camera" compact="true" mode="contained"  uppercase="false" onPress={() => getValueFor("token")} style={{ margin: 10 }} >Tambah Banyak</Button>
         </View>
       </View>
       {/* SCROLL SECTION */}
