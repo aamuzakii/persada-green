@@ -57,23 +57,20 @@ export default function App() {
 
   let isTokenValid = false
 
-  return (
+  if (isTokenValid) return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={screenOptions} >
-        {
-          isTokenValid ? (
-            <>
-              <Tab.Screen name="Beranda" component={HomeScreen} />
-              <Tab.Screen name="Pesanan" component={OrderScreen} />
-              <Tab.Screen options={{headerShown: false}} name="Katalog" component={CatalogStack} />
-              <Tab.Screen name="Akun" component={AccountScreen} />
-            </>
-          ) : <>
-                <Tab.Screen name="Beranda" options={{headerShown: false, tabBarVisible: false}} component={LoginScreen} />    
-              </>
-        }
+        <Tab.Screen name="Beranda" component={HomeScreen} />
+        <Tab.Screen name="Pesanan" component={OrderScreen} />
+        <Tab.Screen options={{headerShown: false}} name="Katalog" component={CatalogStack} />
+        <Tab.Screen name="Akun" component={AccountScreen} />
       </Tab.Navigator>
     </NavigationContainer>
-  );
+  )
+
+  if (!isTokenValid) return(
+    <LoginScreen></LoginScreen>
+  )
 }
 
+{/* <Tab.Screen name="Beranda" options={{headerShown: false, tabBarVisible: false}} component={LoginScreen} />     */}
