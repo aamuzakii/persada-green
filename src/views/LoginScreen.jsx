@@ -1,7 +1,7 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View, TextInput, TouchableHighlight } from "react-native";
+import { ImageBackground, StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { TextInput } from 'react-native-paper';
 
 const image = { uri: "https://res.cloudinary.com/dm9ufmxnq/image/upload/v1653724772/wp3152237_tzuzzj.png" };
 
@@ -17,21 +17,11 @@ const LoginScreen = () => (
         <Text style={{ color: '#626262', fontSize: 15, marginVertical: 25 }} >Nomor WhatsApp valid dibutuhkan untuk mengatur pesanan dan toko</Text>
         <Text style={{ color: '#626262', fontSize: 17 }} >Nomor WhatsApp</Text>
         <TextInput
-          style={{
-            height: 40,
-            marginVertical: 12,
-            borderWidth: 1,
-            padding: 10,
-            borderRadius: 5,
-            borderColor: '#626262'
-          }}
-          // onChangeText={onChangeNumber}
-          // value={number}
-          placeholder="useless placeholder"
-          keyboardType="numeric"
-          selectionColor="red"
-        >
-        </TextInput>
+          mode="outlined"
+          label="Outlined input"
+          placeholder="Type something"
+          right={<TextInput.Affix text="/100" />}
+        />
         <TouchableHighlight>
           <View style={{
             alignItems: "center",
