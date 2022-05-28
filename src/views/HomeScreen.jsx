@@ -5,11 +5,25 @@ import { Subheading, Button, Searchbar, Caption  } from 'react-native-paper';
 import { outlinedButton, fullButton, outlinedButtonLong } from '../components/SharedStyle';
 import OrderCard from '../components/home/OrderCard';
 import WebLink from '../components/home/WebLink';
+import * as SecureStore from 'expo-secure-store';
 
 const Home = () => {
 
   let screenHeight = Dimensions.get('window').height;
   let screenWidth = Dimensions.get('window').width;
+
+  async function setToken() {
+    await SecureStore.setItemAsync("foo", "ateeeem");
+  }
+
+  async function getValueFor(key) {
+    let result = await SecureStore.getItemAsync(key);
+    if (result) {
+      alert("🔐 Here's your value 🔐 \n" + result);
+    } else {
+      alert('No values stored under that key.');
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -17,8 +31,8 @@ const Home = () => {
         <Subheading style={{ fontWeight: 'bold' }} >Tombol Kilat</Subheading>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
           {/* https://materialdesignicons.com/ */}
-          <Button icon="package-variant" compact="true" mode="contained"  uppercase="false" onPress={() => console.warn('Pressed')} style={{ margin: 10 }} >Tambah Produk</Button>
-          <Button icon="camera" compact="true" mode="contained"  uppercase="false" onPress={() => console.warn('Pressed')} style={{ margin: 10 }} >Tambah Banyak</Button>
+          <Button icon="package-variant" compact="true" mode="contained"  uppercase="false" onPress={() => setToken()} style={{ margin: 10 }} >Tambah Produk</Button>
+          <Button icon="camera" compact="true" mode="contained"  uppercase="false" onPress={() => getValueFor("foo")} style={{ margin: 10 }} >Tambah Banyak</Button>
         </View>
       </View>
       {/* SCROLL SECTION */}
