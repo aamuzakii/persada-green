@@ -1,17 +1,27 @@
 import * as React from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View, Dimensions, RefreshControl } from 'react-native';
 import OrderCard from '../components/orders/OrderCard';
 import { Subheading, Button, Searchbar  } from 'react-native-paper';
+import { useDispatch } from 'react-redux';
+import { fetchOrderByStatus } from '../reducer/reducer';
+import { useSelector } from 'react-redux';
 
-  
 
-const Catalog = () => {
+
+const OrderScreen = () => {
 
   let screenHeight = Dimensions.get('window').height;
 
+  const dispatch = useDispatch()
   const [searchQuery, setSearchQuery] = React.useState('');
 
   const onChangeSearch = query => setSearchQuery(query);
+
+  React.useEffect(() => {
+    dispatch(fetchOrderByStatus("all"))
+  }, [])
+
+  let orderList = useSelector( state => state.orderByType)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,11 +35,12 @@ const Catalog = () => {
       </View>
       <View style={{ height: (screenHeight - 300), borderColor: 'green' }} >
         <ScrollView >
-          <OrderCard></OrderCard>
-          <OrderCard></OrderCard>
-          <OrderCard></OrderCard>
-          <OrderCard></OrderCard>
-          <OrderCard></OrderCard>
+          {
+            orderList.map((commonProps, index) => {
+              return (
+              <OrderCard {...commonProps} key={index}></OrderCard>
+            )})
+          }
         </ScrollView>
       </View>
       <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'  }} >
@@ -69,5 +80,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Catalog;
+export default OrderScreen;
 // https://stackoverflow.com/questions/46805135/scrollview-with-flex-1-makes-it-un-scrollable

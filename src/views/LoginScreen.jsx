@@ -18,7 +18,7 @@ const LoginScreen = () => {
 
   }
 
-  return (
+  return ( 
   <View style={styles.container}>
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View style={{ padding: 25, backgroundColor: 'white', height: 400, borderTopRightRadius: 20, borderTopLeftRadius: 20 }} >

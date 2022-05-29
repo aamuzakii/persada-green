@@ -9,6 +9,7 @@ const BASE_URI = 'https://7426-140-213-13-125.ap.ngrok.io'
 const UPDATE_STATUS = "UPDATE_STATUS"
 const SET_IS_LOADING = "SET_IS_LOADING"
 const SET_ADMIN_TOKEN = "SET_ADMIN_TOKEN"
+const SET_ORDER_BY_TYPE = "SET_ORDER_BY_TYPE"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -38,6 +39,7 @@ const initialValue = {
   thisUserAttendance : {},
   isLoading : false,
   adminToken : '',
+  orderByType : [],
 }
 
 export function fetchAllProducts() {
@@ -128,11 +130,44 @@ export function requestOTP(payload) {
   })
 }
 
+export function setOrderByType(input) {
+  return {
+    type: SET_ORDER_BY_TYPE,
+    payload: input
+  }
+}
+
+export function fetchOrderByStatus(status) {
+  return ( async (dispatch) => {
+    let url = `${BASE_URI}/orders/index_by_status?status=${status}`
+    
+    let header = new Headers();
+    const token = await SecureStore.getItemAsync("token");
+    header.append("Authorization", token);
+  
+    let requestOptions = {
+      method: 'GET',
+      headers: header,
+    };
+
+    // dispatch(setIsLoading(true))
+    
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        dispatch(setOrderByType(result))
+      })
+      .finally(()=> {
+        // dispatch(setIsLoading(false))
+      })
+      .catch(error => console.error('error', error));
+  })
+} 
+
 function reducer(state = initialValue, action) {
-  console.log(action)
   switch (action.type) {
-    case UPDATE_STATUS:
-      return { ...state, thisUserAttendance : action.payload}
+    case SET_ORDER_BY_TYPE:
+      return { ...state, orderByType : action.payload}
     case SET_ADMIN_TOKEN:
       return { ...state, adminToken : action.payload}
     case SET_IS_LOADING:
