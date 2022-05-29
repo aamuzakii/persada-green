@@ -6,8 +6,22 @@ import { outlinedButton, fullButton, outlinedButtonLong } from '../components/Sh
 import OrderCard from '../components/home/OrderCard';
 import WebLink from '../components/home/WebLink';
 import * as SecureStore from 'expo-secure-store';
+import { useDispatch } from 'react-redux';
+import { fetchOrderByStatus } from '../reducer/reducer';
+import { useSelector } from 'react-redux';
+
 
 const Home = () => {
+  const dispatch = useDispatch()
+
+  React.useEffect(() => {
+
+    dispatch(fetchOrderByStatus("all"))
+
+  }, [])
+
+  let orderList = useSelector( state => state.orderByType)
+
 
   let screenHeight = Dimensions.get('window').height;
   let screenWidth = Dimensions.get('window').width;
@@ -50,9 +64,10 @@ const Home = () => {
             </View>
             <ScrollView horizontal={true} style={{ marginVertical: 15 }}>
               {
-                [1,2,3,4].map((key, i) => (
-                  <OrderCard key={i} ></OrderCard>
-                ))
+                orderList.map((commonProps, index) => {
+                  return (
+                  <OrderCard {...commonProps} key={index}></OrderCard>
+                )})
               }
             </ScrollView> 
           </View>
