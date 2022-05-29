@@ -21,7 +21,6 @@ export function updateStatusRedux (payload) {
 }
 
 export function setAdminToken (payload) {
-  console.log("masuk")
   return {
     type : SET_ADMIN_TOKEN,
     payload
@@ -130,6 +129,7 @@ export function requestOTP(payload) {
 }
 
 function reducer(state = initialValue, action) {
+  console.log(action)
   switch (action.type) {
     case UPDATE_STATUS:
       return { ...state, thisUserAttendance : action.payload}

@@ -17,7 +17,6 @@ const Catalog = ({ navigation }) => {
 
   const handleSubmit = async () => {
     let secureURL = await useUploadToCloudinary(imageURI)
-    console.log(secureURL, `<<<<`)
     dispatch(postNewProduct({ name, price, desc }))
     if ("success post") {
       setName("")

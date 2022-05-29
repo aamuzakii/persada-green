@@ -38,7 +38,6 @@ export function useUploadToCloudinary(uri) {
 				// if (callback) callback(res);
 				response = res;
 				uploadedUrl = res.secure_url
-				console.log(uploadedUrl, `::::::::::`)
 				return await uploadedUrl
 			};
 			xhr.onerror = e => {

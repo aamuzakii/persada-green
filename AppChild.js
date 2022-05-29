@@ -11,6 +11,7 @@ import AccountScreen from './src/views/AccountScreen'
 import AddProductScreen from './src/views/AddProductScreen'
 import LoginScreen from './src/views/LoginScreen'
 import { useSelector } from 'react-redux';
+import * as SecureStore from 'expo-secure-store';
 
 const Tab = createBottomTabNavigator();
 
@@ -56,7 +57,7 @@ function CatalogStack() {
 
 export default function App() {
 
-  let a = useSelector( state => state)
+  let a = useSelector( state => state.adminToken)
 
   let isTokenValid = a
 

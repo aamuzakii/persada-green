@@ -57,7 +57,6 @@ export default function ProductPicture({ setImageURIParent }) {
     try {
 
       let a = useUploadToCloudinary(imgURI)
-      console.log(a)
 
     } catch (error) {
       console.error(error)

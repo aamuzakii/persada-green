@@ -48,7 +48,6 @@ export function useUploadToCloudinary(uri) {
     return fetch(uploadUrl, requestOptions)
       .then(response => response.json())
       .then(result => {
-				console.log(result.secure_url, `~~~~~~`)
 				return result.secure_url
       })
       .catch(error => console.error('error', error));
