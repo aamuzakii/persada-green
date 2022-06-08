@@ -23,11 +23,20 @@ const OrderScreen = () => {
 
   let orderList = useSelector( state => state.orderByType)
 
+  const statuses = [{name: 'Semua Pesanan', val: 'all'}, {name: 'Pesanan Baru', val: 'new'}, {name: 'Dikirim', val: 'all'}, {name: 'Selesai', val: 'all'}]
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ backgroundColor: '#f4f6f8', flexGrow: 1, padding: 10 }} >
+      <View style={{ backgroundColor: '#f4f6f8', padding: 3 }} >
+        <ScrollView horizontal={true} style={{ marginVertical: 15 }}>
+          {
+            statuses.map((item, i)=> (
+              <View key={i} style={{ backgroundColor: '#301b92', borderRadius: 10, paddingHorizontal: 10, paddingBottom: 1, justifyContent: 'center', height: 25, marginHorizontal: 5 }} ><Text style={{ color: 'white', fontSize: 10 }} >{item.name}</Text></View>
+            ))
+          }
+        </ScrollView>
       </View>
-      <View style={{ height: (screenHeight - 300), borderColor: 'green' }} >
+      <View style={{ height: (screenHeight - 180), borderColor: 'green' }} >
         <ScrollView >
           {
             orderList.map((commonProps, index) => {
@@ -36,10 +45,6 @@ const OrderScreen = () => {
             )})
           }
         </ScrollView>
-      </View>
-      <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'  }} >
-        <Button mode="outlined" onPress={() => console.warn('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Banyak</Button>
-        <Button mode="contained" onPress={() => console.warn('Pressed')} style={{ margin: 0, width: 150, height: 40 }} >Tambah Produk</Button>
       </View>
     </SafeAreaView>
   );
@@ -50,7 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollView: {
-    // backgroundColor: 'rgba(52, 52, 52, 0.8)',
     backgroundColor: 'white',
     flex: 1
   },
