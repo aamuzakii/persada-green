@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import HomeScreen from './src/views/HomeScreen'
 import OrderScreen from './src/views/OrderScreen'
 import CatalogScreen from './src/views/CatalogScreen'
@@ -24,13 +25,13 @@ const screenOptions = ({ route }) => ({
       case "Beranda":
         iconName = focused ? 'md-home' : 'md-home-outline'
         break;
-      case "Pesanan":
+      case "Pesanan Saya":
         iconName = focused ? 'cart' : 'cart-outline'
         break
       case "Akun":
         iconName = focused ? 'ios-settings-sharp' : 'md-settings-outline'
         break
-      case "Katalog":
+      case "Katalog Stack":
         iconName = focused ? 'md-search-circle' : 'md-search-circle-outline'
         break
       default:
@@ -48,16 +49,16 @@ const screenOptions = ({ route }) => ({
 const Stack = createNativeStackNavigator(); 
 
 const optionObject = ({ navigation }) => ({
-  title: 'Awesome app',
+  // title: 'Awesome app',
   headerRight: () => (
-    <Ionicons name="md-search-circle" onPress={() => navigation.navigate('Filter')} />
+    <MaterialIcons name="filter-alt" size={20}  onPress={() => navigation.navigate('Filter')} />
   ),
 })
 
 function CatalogStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="MainCatalog" component={CatalogScreen} options={optionObject} ></Stack.Screen>
+      <Stack.Screen name="Katalog" component={CatalogScreen} options={optionObject} ></Stack.Screen>
       <Stack.Screen name="Detail Produk Baru" component={AddProductScreen} ></Stack.Screen>
       <Stack.Screen name="Filter" component={FilterScreen} ></Stack.Screen>
     </Stack.Navigator>
@@ -74,8 +75,8 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator screenOptions={screenOptions} >
         <Tab.Screen name="Beranda" component={HomeScreen} />
-        <Tab.Screen name="Pesanan" component={OrderScreen} />
-        <Tab.Screen options={{headerShown: false}} name="Katalog" component={CatalogStack} />
+        <Tab.Screen name="Pesanan Saya" component={OrderScreen} />
+        <Tab.Screen options={{headerShown: false}} name="Katalog Stack" component={CatalogStack} />
         <Tab.Screen name="Akun" component={AccountScreen} />
       </Tab.Navigator>
     </NavigationContainer>

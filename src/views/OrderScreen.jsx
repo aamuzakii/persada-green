@@ -23,7 +23,7 @@ const OrderScreen = () => {
 
   let orderList = useSelector( state => state.orderByType)
 
-  const statuses = [{name: 'Semua Pesanan', val: 'all'}, {name: 'Pesanan Baru', val: 'new'}, {name: 'Dikirim', val: 'all'}, {name: 'Selesai', val: 'all'}]
+  const statuses = [{name: 'Semua Pesanan', val: 'all'}, {name: 'Pesanan Baru', val: 'new'}, {name: 'Dikirim', val: 'delivering'}, {name: 'Selesai', val: 'finish'}, {name: 'Gagal', val: 'failed'}]
 
   return (
     <SafeAreaView style={styles.container}>
