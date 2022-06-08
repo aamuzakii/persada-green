@@ -3,13 +3,14 @@ import thunk from 'redux-thunk'
 import * as SecureStore from 'expo-secure-store';
 
 // const BASE_URI = 'https://dev-api.persada.store'
-const BASE_URI = 'https://7426-140-213-13-125.ap.ngrok.io'
+const BASE_URI = 'https://913e-140-213-33-121.ap.ngrok.io'
 
 
 const UPDATE_STATUS = "UPDATE_STATUS"
 const SET_IS_LOADING = "SET_IS_LOADING"
 const SET_ADMIN_TOKEN = "SET_ADMIN_TOKEN"
 const SET_ORDER_BY_TYPE = "SET_ORDER_BY_TYPE"
+const SET_ALL_PRODUCTS = "SET_ALL_PRODUCTS"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -35,11 +36,19 @@ export function setIsLoadingRedux (payload) {
   }
 }
 
+export function setAllProducts (payload) {
+  return {
+    type : SET_ALL_PRODUCTS,
+    payload
+  }
+}
+
 const initialValue = {
   thisUserAttendance : {},
   isLoading : false,
   adminToken : '',
   orderByType : [],
+  allProducts : [],
 }
 
 export function fetchAllProducts() {
@@ -54,7 +63,7 @@ export function fetchAllProducts() {
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        // dispatch(setProductToShow(result))
+        dispatch(setAllProducts(result))
       })
       .catch(error => console.error('error', error));
   })
@@ -172,6 +181,8 @@ function reducer(state = initialValue, action) {
       return { ...state, adminToken : action.payload}
     case SET_IS_LOADING:
       return { ...state, isLoading :action.payload}
+    case SET_ALL_PRODUCTS:
+      return { ...state, allProducts :action.payload}
     default:
       return state
   }

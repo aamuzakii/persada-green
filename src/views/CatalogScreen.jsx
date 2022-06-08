@@ -3,6 +3,8 @@ import { StyleSheet, TextInput, SafeAreaView, ScrollView, StatusBar, View, Dimen
 import Card from '../components/catalog/Card'
 import { Subheading, Button, Searchbar  } from 'react-native-paper';
 import { grey } from '../components/SharedStyle';
+import { fetchAllProducts } from '../reducer/reducer'
+import { useDispatch, useSelector } from 'react-redux';
 
 const Catalog = ({navigation}) => {
 
@@ -11,6 +13,14 @@ const Catalog = ({navigation}) => {
   const [searchQuery, setSearchQuery] = React.useState('');
 
   const onChangeSearch = query => setSearchQuery(query);
+
+  const dispatch = useDispatch()
+
+  React.useEffect(() => {
+    dispatch(fetchAllProducts())
+  }, []);
+
+  let productList = useSelector( state => state.allProducts)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +35,11 @@ const Catalog = ({navigation}) => {
       </View>
       <View style={{ height: (screenHeight - 300), backgroundColor: 'green' }} >
         <ScrollView style={{ backgroundColor: '#f5f6f8' }} contentContainerStyle={{ alignItems: 'center' }} >
-          <Card></Card>
+          {
+            productList && productList.map((data, i) => (
+              <Card {...data} key={i} />
+            ))
+          }
         </ScrollView>
       </View>
       <View style={{ backgroundColor: '#fafafa', flexGrow: 1, flexDirection: 'row', padding: 10, justifyContent: 'space-around'  }} >

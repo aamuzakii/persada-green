@@ -4,7 +4,7 @@ import { Subheading, Button, Searchbar, Caption, Switch   } from 'react-native-p
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { grey } from '../SharedStyle';
 
-export default function Card() {
+export default function Card({name, price, int_price, image_url, id, category}) {
   let screenHeight = Dimensions.get('window').height;
   let screenWidth = Dimensions.get('window').width;
   let boxSize = screenHeight * 10 /100
@@ -22,16 +22,15 @@ export default function Card() {
       setToggleText("Tidak Aktif")
     }
   }, [isSwitchOn]);
-
   return (
     <View style={{ flex: 1, width: screenWidth * 95 / 100, backgroundColor: 'white', margin: 5, padding: 10, borderRadius: 10, borderColor: '#f4f4f4', borderWidth: 3, shadowColor: "#000", shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.27, shadowRadius: 4.65 }} >
       <View id="atas" style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
-        <Image style={{ borderRadius: 12 }} source={{uri:"https://picsum.photos/200", width: boxSize , height: boxSize  }}/>
+        <Image style={{ borderRadius: 12 }} source={{uri: image_url, width: boxSize , height: boxSize  }}/>
         <View style={{ alignItems: 'flex-start' }} >
-          <View style={{ backgroundColor: '#eae8f5', borderRadius: 5, paddingHorizontal: 3 }} ><Text style={{ fontSize: 12, color: '#301b92' }} >Elektronik</Text></View>
-          <Text style={{ fontWeight: 'bold', fontSize: 16 }} >Mouse Logitech</Text>
+        <View style={{ backgroundColor: '#eae8f5', borderRadius: 5, paddingHorizontal: 3 }} ><Text style={{ fontSize: 12, color: '#301b92' }} >Elektronik</Text></View>
+          <Text style={{ fontWeight: 'bold', fontSize: 16 }} >{name}</Text>
           <Caption>1 Variasi</Caption>
-          <Subheading>Rp45.000</Subheading>
+          <Subheading>{price}</Subheading>
         </View>
         <Ionicons name="chevron-forward-sharp" size={30} color="#301b92" />
       </View>

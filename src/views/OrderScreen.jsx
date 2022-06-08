@@ -26,12 +26,6 @@ const OrderScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ backgroundColor: '#f4f6f8', flexGrow: 1, padding: 10 }} >
-        <Subheading >Produk</Subheading>
-        <Searchbar
-          placeholder="Search"
-          onChangeText={onChangeSearch}
-          value={searchQuery}
-        />
       </View>
       <View style={{ height: (screenHeight - 300), borderColor: 'green' }} >
         <ScrollView >
