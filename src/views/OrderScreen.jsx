@@ -36,7 +36,7 @@ const OrderScreen = () => {
           }
         </ScrollView>
       </View>
-      <View style={{ height: (screenHeight - 180), borderColor: 'green' }} >
+      <View style={{ height: (screenHeight - 170), borderColor: 'green' }} >
         <ScrollView >
           {
             orderList.map((commonProps, index) => {

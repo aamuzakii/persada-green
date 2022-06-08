@@ -31,7 +31,7 @@ const screenOptions = ({ route }) => ({
       case "Akun":
         iconName = focused ? 'ios-settings-sharp' : 'md-settings-outline'
         break
-      case "Katalog Stack":
+      case "Katalog":
         iconName = focused ? 'md-search-circle' : 'md-search-circle-outline'
         break
       default:
@@ -43,7 +43,7 @@ const screenOptions = ({ route }) => ({
   },
   tabBarActiveTintColor: 'blue',
   tabBarInactiveTintColor: 'gray',
-  tabBarStyle: [{"display": "flex"}, null]
+  tabBarStyle: [{"display": "flex", height: 50}, null]
 })
 
 const Stack = createNativeStackNavigator(); 
@@ -58,7 +58,7 @@ const optionObject = ({ navigation }) => ({
 function CatalogStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Katalog" component={CatalogScreen} options={optionObject} ></Stack.Screen>
+      <Stack.Screen name="Katalog Utama" component={CatalogScreen} options={optionObject} ></Stack.Screen>
       <Stack.Screen name="Detail Produk Baru" component={AddProductScreen} ></Stack.Screen>
       <Stack.Screen name="Filter" component={FilterScreen} ></Stack.Screen>
     </Stack.Navigator>
@@ -76,7 +76,7 @@ export default function App() {
       <Tab.Navigator screenOptions={screenOptions} >
         <Tab.Screen name="Beranda" component={HomeScreen} />
         <Tab.Screen name="Pesanan Saya" component={OrderScreen} />
-        <Tab.Screen options={{headerShown: false}} name="Katalog Stack" component={CatalogStack} />
+        <Tab.Screen options={{headerShown: false}} name="Katalog" component={CatalogStack} />
         <Tab.Screen name="Akun" component={AccountScreen} />
       </Tab.Navigator>
     </NavigationContainer>

@@ -11,7 +11,7 @@ import { fetchOrderByStatus } from '../reducer/reducer';
 import { useSelector } from 'react-redux';
 
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
@@ -45,7 +45,7 @@ const Home = () => {
         <Subheading style={{ fontWeight: 'bold' }} >Tombol Kilat</Subheading>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
           {/* https://materialdesignicons.com/ */}
-          <Button icon="package-variant" compact="true" mode="contained"  uppercase="false" onPress={() => setToken()} style={{ margin: 10 }} >Tambah Produk</Button>
+          <Button icon="package-variant" compact="true" mode="contained"  uppercase="false" style={{ margin: 10 }} onPress={() => navigation.navigate('Detail Produk Baru')} >Tambah Produk</Button>
           <Button icon="camera" compact="true" mode="contained"  uppercase="false" onPress={() => getValueFor("token")} style={{ margin: 10 }} >Tambah Banyak</Button>
         </View>
       </View>
@@ -60,7 +60,7 @@ const Home = () => {
           <View style={{ backgroundColor: 'white', paddingHorizontal: 10, marginVertical: 15, paddingTop: 15 }} >
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
               <Text style={{ fontWeight: 'bold' }} >Pesanan Baru</Text>
-              <Text style={{ fontWeight: 'bold', color: '#301b92' }} >Lihat Semua</Text>
+              <Text style={{ fontWeight: 'bold', color: '#301b92' }} onPress={() => navigation.navigate('Pesanan Saya')}>Lihat Semua</Text>
             </View>
             <ScrollView horizontal={true} style={{ marginVertical: 15 }}>
               {

@@ -23,7 +23,7 @@ export default function OrderScreen() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home! dari k121om11p</Text>
+      <Text>KELUAR</Text>
       <Button title='LOGOUT'  onPress={removeItemValue} ></Button>
     </View>
   );
