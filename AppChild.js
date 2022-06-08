@@ -10,6 +10,7 @@ import CatalogScreen from './src/views/CatalogScreen'
 import AccountScreen from './src/views/AccountScreen'
 import AddProductScreen from './src/views/AddProductScreen'
 import LoginScreen from './src/views/LoginScreen'
+import FilterScreen from './src/views/FilterScreen'
 import { useSelector } from 'react-redux';
 import * as SecureStore from 'expo-secure-store';
 
@@ -46,11 +47,19 @@ const screenOptions = ({ route }) => ({
 
 const Stack = createNativeStackNavigator(); 
 
+const optionObject = ({ navigation }) => ({
+  title: 'Awesome app',
+  headerRight: () => (
+    <Ionicons name="md-search-circle" onPress={() => navigation.navigate('Filter')} />
+  ),
+})
+
 function CatalogStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="MainCatalog" component={CatalogScreen} ></Stack.Screen>
+      <Stack.Screen name="MainCatalog" component={CatalogScreen} options={optionObject} ></Stack.Screen>
       <Stack.Screen name="Detail Produk Baru" component={AddProductScreen} ></Stack.Screen>
+      <Stack.Screen name="Filter" component={FilterScreen} ></Stack.Screen>
     </Stack.Navigator>
   )
 }
