@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Dimensions, TouchableHighlight } from 'react-native';
+import { Text, View, Dimensions, TouchableHighlight, Clipboard } from 'react-native';
 import { Subheading, Button, Searchbar, Caption  } from 'react-native-paper';
 import { outlinedButton, fullButton, outlinedButtonLong } from '../SharedStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -8,12 +8,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 export default function WebLink() {
   let screenHeight = Dimensions.get('window').height;
 
+  const [copiedText, setCopiedText] = React.useState('')
+
+  const copyToClipboard = () => {
+    Clipboard.setString('www.persada.store')
+  }
   return (
     <View style={{ padding: 12, backgroundColor: 'white' }} >
       <Caption><Ionicons name="share-social-sharp" size={20} color="#301b92" />Bagikan link ke pelanggan</Caption>
       <View style={{ flexDirection: 'row',  justifyContent: 'space-around' }} >
-        <TouchableHighlight style={outlinedButtonLong} >
-          <Caption>https://persada.store</Caption>
+        <TouchableHighlight style={outlinedButtonLong} onPress={() => copyToClipboard()} activeOpacity={0.6} underlayColor="#DDDDDD" >
+          <Caption>www.persada.store</Caption>
         </TouchableHighlight>
       </View>
       <View style={{ flexDirection: 'row',  justifyContent: 'space-around' }} >
