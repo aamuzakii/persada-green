@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 
 
-export default function OrderScreen() {
+export default function AccountScreen() {
   const dispatch = useDispatch()
 
   const removeItemValue = async (key) => {

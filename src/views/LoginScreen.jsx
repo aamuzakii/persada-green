@@ -11,11 +11,10 @@ const image = { uri: "https://res.cloudinary.com/dm9ufmxnq/image/upload/v1653724
 const LoginScreen = () => {
   const dispatch = useDispatch()
 
-  const submitPhoneNumber = async () => {
-    let result = await dispatch(requestOTP({
-      phone: '6283894588105'
-    }))
+  const [email, setEmail] = React.useState('dev@mail.com')
 
+  const onChangeNumber = (props) => {
+    setEmail(props)
   }
 
   return ( 
@@ -24,18 +23,8 @@ const LoginScreen = () => {
       <View style={{ padding: 25, backgroundColor: 'white', height: 400, borderTopRightRadius: 20, borderTopLeftRadius: 20 }} >
         <Text style={{ fontWeight:'bold', fontSize: 17 }} >Silakan Masukkan nomor telepon kamu</Text>
         <Text style={{ color: '#626262', fontSize: 15, marginVertical: 25 }} >Nomor WhatsApp valid dibutuhkan untuk mengatur pesanan dan toko</Text>
-        <Text style={{ color: '#626262', fontSize: 17 }} >Nomor WhatsApp</Text>
-        <CustomInput></CustomInput>
-        <TouchableHighlight onPress={submitPhoneNumber} >
-          <View style={{
-            alignItems: "center",
-            backgroundColor: "#311b92",
-            padding: 10,
-            borderRadius: 10,
-          }}>
-            <Text style={{ color: 'white', fontWeight: 'bold' }} >Verifikasi dengan SMS</Text>
-          </View>
-        </TouchableHighlight>
+        <Text style={{ color: '#626262', fontSize: 17 }} >Nomor WhatsApp!xxxx</Text>
+        <CustomInput/>
         <View style={{ flexDirection: 'row', marginVertical: 20, alignItems: 'center', marginHorizontal: 20 }} >
           {/* left side */}
           <View style={{ flexDirection: 'row', alignItems: 'center' }} >

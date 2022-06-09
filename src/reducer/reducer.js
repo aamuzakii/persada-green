@@ -2,8 +2,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import * as SecureStore from 'expo-secure-store';
 
-const BASE_URI = 'https://dev-api.persada.store'
-// const BASE_URI = 'https://913e-140-213-33-121.ap.ngrok.io'
+// const BASE_URI = 'https://dev-api.persada.store'
+const BASE_URI = 'https://8bd0-140-213-0-22.ap.ngrok.io'
 
 
 const UPDATE_STATUS = "UPDATE_STATUS"
@@ -11,6 +11,7 @@ const SET_IS_LOADING = "SET_IS_LOADING"
 const SET_ADMIN_TOKEN = "SET_ADMIN_TOKEN"
 const SET_ORDER_BY_TYPE = "SET_ORDER_BY_TYPE"
 const SET_ALL_PRODUCTS = "SET_ALL_PRODUCTS"
+const SET_SHOWN_PRODUCTS = "SET_SHOWN_PRODUCTS"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -43,12 +44,20 @@ export function setAllProducts (payload) {
   }
 }
 
+export function setShownProducts (payload) {
+  return {
+    type : SET_SHOWN_PRODUCTS,
+    payload
+  }
+}
+
 const initialValue = {
   thisUserAttendance : {},
   isLoading : false,
   adminToken : '',
   orderByType : [],
   allProducts : [],
+  shownProducts : [],
 }
 
 export function fetchAllProducts() {
@@ -64,6 +73,7 @@ export function fetchAllProducts() {
       .then(response => response.json())
       .then(result => {
         dispatch(setAllProducts(result))
+        dispatch(setShownProducts(result))
       })
       .catch(error => console.error('error', error));
   })
@@ -139,6 +149,33 @@ export function requestOTP(payload) {
   })
 }
 
+export function passwordLogin(payload) {
+  return ((dispatch) => {
+    let url = `${BASE_URI}/authentications/password_login`
+
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
+
+    let requestOptions = {
+      method: 'POST',
+      headers: header,
+      body: JSON.stringify(payload)
+    };
+    console.log(payload)
+    
+    return fetch(url, requestOptions)
+      .then(response => response.json())
+      .then( async (result) => {
+        console.log(result)
+        if (result.token) {
+          await SecureStore.setItemAsync("token", result.token);
+          dispatch(setAdminToken(result.token))
+        }
+      })
+      .catch(error => console.error('error', error));
+  })
+}
+
 export function setOrderByType(input) {
   return {
     type: SET_ORDER_BY_TYPE,
@@ -183,6 +220,8 @@ function reducer(state = initialValue, action) {
       return { ...state, isLoading :action.payload}
     case SET_ALL_PRODUCTS:
       return { ...state, allProducts :action.payload}
+    case SET_SHOWN_PRODUCTS:
+      return { ...state, shownProducts :action.payload}
     default:
       return state
   }

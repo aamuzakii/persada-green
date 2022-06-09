@@ -12,6 +12,7 @@ import AccountScreen from './src/views/AccountScreen'
 import AddProductScreen from './src/views/AddProductScreen'
 import LoginScreen from './src/views/LoginScreen'
 import FilterScreen from './src/views/FilterScreen'
+import OrderDetailScreen from './src/views/OrderDetailScreen'
 import { useSelector } from 'react-redux';
 import * as SecureStore from 'expo-secure-store';
 
@@ -65,6 +66,15 @@ function CatalogStack() {
   )
 }
 
+function OrderStack() {
+  return (
+  <Stack.Navigator>
+    <Stack.Screen name="Katalog Utama" component={OrderScreen} ></Stack.Screen>
+    <Stack.Screen name="Detail Order" component={OrderDetailScreen} ></Stack.Screen>
+  </Stack.Navigator>
+  )
+}
+
 export default function App() {
 
   let a = useSelector( state => state.adminToken)
@@ -75,7 +85,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator screenOptions={screenOptions} >
         <Tab.Screen name="Beranda" component={HomeScreen} />
-        <Tab.Screen name="Pesanan Saya" component={OrderScreen} />
+        <Tab.Screen options={{headerShown: false}} name="Pesanan Saya" component={OrderStack} />
         <Tab.Screen options={{headerShown: false}} name="Katalog" component={CatalogStack} />
         <Tab.Screen name="Akun" component={AccountScreen} />
       </Tab.Navigator>
