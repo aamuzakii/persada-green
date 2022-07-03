@@ -2,8 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import * as SecureStore from 'expo-secure-store';
 
-// const BASE_URI = 'https://dev-api.persada.store'
-const BASE_URI = 'https://8bd0-140-213-0-22.ap.ngrok.io'
+const BASE_URI = 'https://1517-112-215-170-26.ap.ngrok.io/'
 
 
 const UPDATE_STATUS = "UPDATE_STATUS"

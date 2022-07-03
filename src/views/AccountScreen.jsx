@@ -3,6 +3,7 @@ import { Text, View, Button } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import { setAdminToken } from '../reducer/reducer';
 import { useDispatch } from 'react-redux';
+import  Card  from '../components/account/Card'
 
 
 
@@ -22,7 +23,14 @@ export default function AccountScreen() {
 }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'white' }}>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
       <Text>KELUAR</Text>
       <Button title='LOGOUT'  onPress={removeItemValue} ></Button>
     </View>

@@ -1,0 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { setAdminToken } from './src/reducer/reducer'
+
+const dispatch = useDispatch()
+
+try {
+    // SecureStore.deleteItemAsync("token")
+    // dispatch(setAdminToken(null))
+}
+catch(exception) {
+    alert(exception)
+}
