@@ -4,7 +4,13 @@ import { Subheading, Button, Searchbar, Caption, Switch   } from 'react-native-p
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { grey } from '../SharedStyle';
 
-export default function Card() {
+export default function Card({ title, body, icon }) {
+
+  title = title || 'Perlu Bantuan'
+  body = body || 'Perlu Bantuan'
+  icon = icon || 'ios-call-outline'
+
+
   let screenHeight = Dimensions.get('window').height;
   let screenWidth = Dimensions.get('window').width;
   let boxSize = screenHeight * 10 /100
@@ -32,13 +38,14 @@ export default function Card() {
     shadowRadius: 3.84,
     elevation: 5,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
     }} >
-      <View style={{ flexDirection:'row' }} >
-        <Text>Logo</Text>
-        <View style={{ height: '100%', justifyContent: 'space-around' }} >
-          <Text style={{ fontWeight: '600' }} >Perlu Bantuan?</Text>
-          <Text>Hubungi Kami</Text>
+      <View style={{ flexDirection:'row', alignItems: 'center' }} >
+        <Ionicons name={icon} size={25} color="#301b92" />
+        <View style={{ height: '100%', justifyContent: 'space-around', marginHorizontal: 12 }} >
+          <Text style={{ fontWeight: '600' }} >{ title }</Text>
+          <Text style={{ fontSize: 12 }} >{ body }</Text>
         </View>
       </View>
       <Ionicons name="chevron-forward-sharp" size={30} color="#301b92" />
