@@ -21,9 +21,8 @@ const LoginScreen = () => {
   <View style={styles.container}>
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View style={{ padding: 25, backgroundColor: 'white', height: 400, borderTopRightRadius: 20, borderTopLeftRadius: 20 }} >
-        <Text style={{ fontWeight:'bold', fontSize: 17 }} >Silakan Masukkan nomor telepon kamu</Text>
-        <Text style={{ color: '#626262', fontSize: 15, marginVertical: 25 }} >Nomor WhatsApp valid dibutuhkan untuk mengatur pesanan dan toko</Text>
-        <Text style={{ color: '#626262', fontSize: 17 }} >Nomor WhatsApp!xxxx</Text>
+        <Text style={{ fontWeight:'bold', fontSize: 17 }} >Silahkan masukkan email dan password admin</Text>
+        <Text style={{ color: '#626262', fontSize: 15, marginVertical: 25 }} >Atau centang testing untuk masuk sebagai tamu</Text>
         <CustomInput/>
         <View style={{ flexDirection: 'row', marginVertical: 20, alignItems: 'center', marginHorizontal: 20 }} >
           {/* left side */}

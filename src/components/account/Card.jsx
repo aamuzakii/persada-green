@@ -2,9 +2,10 @@ import * as React from 'react';
 import { Text, View, Dimensions, Image } from 'react-native';
 import { Subheading, Button, Searchbar, Caption, Switch   } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { grey } from '../SharedStyle';
 
-export default function Card({ title, body, icon }) {
+export default function Card({ title, body, icon, isMaterialIcon, isLogOut }) {
 
   title = title || 'Perlu Bantuan'
   body = body || 'Perlu Bantuan'
@@ -42,13 +43,15 @@ export default function Card({ title, body, icon }) {
     alignItems: 'center'
     }} >
       <View style={{ flexDirection:'row', alignItems: 'center' }} >
-        <Ionicons name={icon} size={25} color="#301b92" />
+        {
+          isLogOut ? <MaterialIcons name={icon} size={25} color="red" /> : <Ionicons name={icon} size={25} color="#301b92" />
+        }
         <View style={{ height: '100%', justifyContent: 'space-around', marginHorizontal: 12 }} >
           <Text style={{ fontWeight: '600' }} >{ title }</Text>
           <Text style={{ fontSize: 12 }} >{ body }</Text>
         </View>
       </View>
-      <Ionicons name="chevron-forward-sharp" size={30} color="#301b92" />
+      <Ionicons name="chevron-forward-sharp" size={30} color="#ddd" />
     </View>
   );
 }

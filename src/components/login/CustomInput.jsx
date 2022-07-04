@@ -15,32 +15,30 @@ function CustomInput() {
     dispatch(passwordLogin({ email, password }))
   }
 
+  const inputStyle = {
+    height: 40,
+    marginVertical: 12,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 5,
+    borderColor: '#626262'
+  }
+
   return (
     <>
+    <Text>Email</Text>
     <TextInput
-          style={{
-            height: 40,
-            marginVertical: 12,
-            borderWidth: 1,
-            padding: 10,
-            borderRadius: 5,
-            borderColor: '#626262'
-          }}
+          style={inputStyle}
           // onChangeText={onChangeNumber}
           value={email}
           placeholder="Password"
           // keyboardType="numeric"
           selectionColor="red"
         />
+            <Text>Password</Text>
+
     <TextInput
-          style={{
-            height: 40,
-            marginVertical: 12,
-            borderWidth: 1,
-            padding: 10,
-            borderRadius: 5,
-            borderColor: '#626262'
-          }}
+          style={inputStyle}
           // onChangeText={onChangeNumber}
           value={password}
           placeholder="Masukan nomor WhatsApp"
@@ -55,7 +53,7 @@ function CustomInput() {
             padding: 10,
             borderRadius: 10,
           }}>
-            <Text style={{ color: 'white', fontWeight: 'bold' }} >Verifikasi dengan SMS</Text>
+            <Text style={{ color: 'white', fontWeight: 'bold' }} >Masuk</Text>
           </View>
         </TouchableHighlight>
     </>
