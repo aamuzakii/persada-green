@@ -36,6 +36,7 @@ function CustomInput() {
   const inputStyle = {
     height: 40,
     marginVertical: 12,
+    marginTop: 5,
     borderWidth: 1,
     padding: 10,
     borderRadius: 5,
@@ -48,7 +49,10 @@ function CustomInput() {
       <TextInput style={inputStyle} onChangeText={onChangeNumber} value={email} placeholder="Password" selectionColor="red" />
       <Text>Password</Text>
       <TextInput style={inputStyle} onChangeText={onChangeNumber} value={password} placeholder="Masukan nomor WhatsApp" selectionColor="red" />
-      <Checkbox status={checked ? 'checked' : 'unchecked'} onPress={handleTickCheckBox} color="blue"  />
+      <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+        <Checkbox status={checked ? 'checked' : 'unchecked'} onPress={handleTickCheckBox} color="blue"  />
+        <Text>Masuk sebagai tamu</Text>
+      </View>
       <TouchableHighlight onPress={login} >
         <View style={touchableHighlightStyle}>
           <Text style={{ color: 'white', fontWeight: 'bold' }} >Masuk</Text>
