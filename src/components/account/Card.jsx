@@ -17,16 +17,23 @@ export default function Card({ title, body, icon, isMaterialIcon, isLogOut, remo
     setIsSwitchOn(!isSwitchOn)
   };
 
-  const container = { height: 65, width: screenWidth * 95 / 100, backgroundColor: 'white', margin: 5, padding: 10, borderRadius: 10, shadowColor: "#000",
-  shadowOffset: {
-    width: 0,
-    height: 2,
-  },
-  shadowOpacity: 0.25,
-  shadowRadius: 3.84,
-  elevation: 5,
-  flexDirection: 'row',
-  borderColor: 'white'
+  const container = { 
+    height: 65,
+    width: screenWidth * 95 / 100,
+    backgroundColor: 'white',
+    margin: 5,
+    padding: 10,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    flexDirection: 'row',
+    borderColor: 'white'
   }
 
   const innerContainer = {
@@ -36,27 +43,20 @@ export default function Card({ title, body, icon, isMaterialIcon, isLogOut, remo
     alignItems: 'center'
   }
 
-  React.useEffect(() => {
-    if (isSwitchOn) {
-      setToggleText("Aktif")
-    } else {
-      setToggleText("Tidak Aktif")
-    }
-  }, [isSwitchOn]);
   return (
     <TouchableOpacity style={container} onPress={removeItemValue} >
-    <View style={innerContainer} >
-      <View style={{ flexDirection:'row', alignItems: 'center' }} >
-        {
-          isLogOut ? <MaterialIcons name={icon} size={25} color="red" /> : <Ionicons name={icon} size={25} color="#301b92" />
-        }
-        <View style={{ height: '100%', justifyContent: 'space-around', marginHorizontal: 12 }} >
-          <Text style={{ fontWeight: '600' }} >{ title }</Text>
-          <Text style={{ fontSize: 12 }} >{ body }</Text>
+      <View style={innerContainer} >
+        <View style={{ flexDirection:'row', alignItems: 'center' }} >
+          {
+            isLogOut ? <MaterialIcons name={icon} size={25} color="red" /> : <Ionicons name={icon} size={25} color="#301b92" />
+          }
+          <View style={{ height: '100%', justifyContent: 'space-around', marginHorizontal: 12 }} >
+            <Text style={{ fontWeight: '600' }} >{ title }</Text>
+            <Text style={{ fontSize: 12 }} >{ body }</Text>
+          </View>
         </View>
+        <Ionicons name="chevron-forward-sharp" size={30} color="#ddd" />
       </View>
-      <Ionicons name="chevron-forward-sharp" size={30} color="#ddd" />
-    </View>
     </TouchableOpacity>
   );
 }
