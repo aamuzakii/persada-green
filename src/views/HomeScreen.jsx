@@ -57,8 +57,8 @@ const Home = ({ navigation }) => {
           {/* component share link */}
           <WebLink></WebLink>
 
-          <View style={{ backgroundColor: 'white', paddingHorizontal: 10, marginVertical: 15, paddingTop: 15 }} >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
+          <View style={{ backgroundColor: 'white', marginVertical: 15, paddingTop: 15 }} >
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10 }} >
               <Text style={{ fontWeight: 'bold' }} >Pesanan Baru</Text>
               <Text style={{ fontWeight: 'bold', color: '#301b92' }} onPress={() => navigation.navigate('Pesanan Saya')}>Lihat Semua</Text>
             </View>

@@ -15,7 +15,10 @@ export default function WebLink() {
   }
   return (
     <View style={{ padding: 12, backgroundColor: 'white' }} >
-      <Caption><Ionicons name="share-social-sharp" size={20} color="#301b92" />Bagikan link ke pelanggan</Caption>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+        <Ionicons name="share-social-sharp" size={20} color="#301b92" style={{ marginHorizontal: 5 }}  />
+        <Caption>Bagikan link ke pelanggan</Caption>
+      </View>
       <View style={{ flexDirection: 'row',  justifyContent: 'space-around' }} >
         <TouchableHighlight style={outlinedButtonLong} onPress={() => copyToClipboard()} activeOpacity={0.6} underlayColor="#DDDDDD" >
           <Caption>www.persada.store</Caption>
