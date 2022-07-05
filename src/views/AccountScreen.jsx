@@ -23,7 +23,7 @@ export default function AccountScreen() {
 }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'white' }}>
+    <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor:'white' }}>
       <Card title="Jam Operasional" body="Atur waktu toko menjadi offline" icon="ios-time-outline" ></Card>
       <Card title="Pembayaran" body="Atur metode pembayaran yang didukung" icon="ios-card-outline" ></Card>
       <Card title="WA" body="Pengaturan Whatsapp" icon="logo-whatsapp" ></Card>

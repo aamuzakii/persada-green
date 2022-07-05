@@ -13,8 +13,17 @@ export default function OrderCard({order_date, customer_info, products_ordereds,
 
   let firstProduct = products_ordereds[0]
 
+  const container = { height: 150, width: screenWidth * 75 / 100, backgroundColor: 'white', margin: 5, marginBottom: 10, padding: 10, borderRadius: 10, shadowColor: "#000", shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.27, shadowRadius: 4.65, justifyContent: 'space-evenly', shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5 }
+
   return (
-    <View style={{ height: 150, width: screenWidth * 75 / 100, backgroundColor: 'white', margin: 5, padding: 10, borderRadius: 10, borderColor: '#f4f4f4', borderWidth: 3, shadowColor: "#000", shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.27, shadowRadius: 4.65, justifyContent: 'space-evenly' }} >
+    <View style={container} >
       <View id="atas" style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
         <View style={{  }} >
           <Text style={bolde} >{customer_info.name}</Text>
