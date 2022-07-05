@@ -3,7 +3,7 @@ import { Text, View, Button } from 'react-native';
 
 export default function OrderDetailScreen({route}) {
 
-  const BASE_URI = 'https://1517-112-215-170-26.ap.ngrok.io/'
+  const BASE_URI = 'https://dev-api.persada.store'
 
   const order_number = route.params
 

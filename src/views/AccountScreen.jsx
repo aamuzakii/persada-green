@@ -30,7 +30,7 @@ export default function AccountScreen() {
       <Card title="Bagikan" body="Bagikan aplikasi" icon="share" ></Card>
       <Card title="Tentang Persada" body="Pelajari lebih lanjut tentang persda.store" icon="information-circle-outline" ></Card>
       <Card title="Analitik" body="Dapatkan insight tentang toko Anda" icon="analytics-outline" ></Card>
-      <Card title="Keluar" body="Atur metode pembayaran yang didukung" icon="logout" isMaterialIcon={true} isLogOut={true} ></Card>
+      <Card title="Keluar" body="Atur metode pembayaran yang didukung" icon="logout" isMaterialIcon={true} isLogOut={true} removeItemValue={removeItemValue} ></Card>
       <Text>KELUAR</Text>
       <Button title='LOGOUT'  onPress={removeItemValue} ></Button>
     </View>

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Text, View, Dimensions, Image } from 'react-native';
+import { Text, View, Dimensions, Image, TouchableHighlight } from 'react-native';
 import { Subheading, Button, Searchbar, Caption, Switch   } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { grey } from '../SharedStyle';
 
-export default function Card({ title, body, icon, isMaterialIcon, isLogOut }) {
+export default function Card({ title, body, icon, isMaterialIcon, isLogOut, removeItemValue }) {
 
   title = title || 'Perlu Bantuan'
   body = body || 'Perlu Bantuan'
@@ -30,7 +30,7 @@ export default function Card({ title, body, icon, isMaterialIcon, isLogOut }) {
     }
   }, [isSwitchOn]);
   return (
-    <View style={{ flex: 1, width: screenWidth * 95 / 100, backgroundColor: 'white', margin: 5, padding: 10, borderRadius: 10, borderColor: 'black',  shadowColor: "#000",
+    <TouchableHighlight style={{ flex: 1, width: screenWidth * 95 / 100, backgroundColor: 'white', margin: 5, padding: 10, borderRadius: 10, borderColor: 'black',  shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -38,6 +38,16 @@ export default function Card({ title, body, icon, isMaterialIcon, isLogOut }) {
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+    }} 
+    
+    onPress={removeItemValue}
+    >
+
+    
+    <View style={{ flex: 1, width: screenWidth * 95 / 100, backgroundColor: 'white', 
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
@@ -53,5 +63,6 @@ export default function Card({ title, body, icon, isMaterialIcon, isLogOut }) {
       </View>
       <Ionicons name="chevron-forward-sharp" size={30} color="#ddd" />
     </View>
+    </TouchableHighlight>
   );
 }
